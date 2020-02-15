@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    
+    //cached reference
+    GameStatus gameStatus;
+
+    public void Start()
+    {
+        gameStatus = FindObjectOfType<GameStatus>();
+    }
     public void LoadFirstScene()
     {
-        SceneManager.LoadScene(0);
-        FindObjectOfType<GameStatus>().ResetGame();
+        SceneManager.LoadScene(1);
+        gameStatus.ResetGame();
     }
 
 
